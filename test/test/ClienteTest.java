@@ -39,10 +39,7 @@ public class ClienteTest {
 
     	ArrayList<Animal> animals = new ArrayList<Animal>();
     	animals.add(animal1);
-    	
-    	System.out.println(animals.size());
-    	System.out.println(this.client.getAnimals().size());
-    	
+
     	assertEquals(animals, this.client.getAnimals());
     	
     	Animal animal2 = new Animal("nome2", "raca2", this.client);
