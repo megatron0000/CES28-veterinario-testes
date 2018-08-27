@@ -18,12 +18,12 @@ public class ConsultaTest {
 
     @Before
     public void setUp() {
-    	sessionDescription = "A session description";
-    	dateNow = java.time.LocalDate.now();
-    	treatment = "Meu tratamento";
-    	cliente = new Client("nome", "endereco");
-    	animal = new Animal("raca", cliente, "nome");
-    	consulta = new Consulta(sessionDescription, dateNow, cliente, treatment, animal);
+    	this.sessionDescription = "A session description";
+    	this.dateNow = java.time.LocalDate.now();
+    	this.treatment = "Meu tratamento";
+    	this.cliente = new Client("nome", "endereco");
+    	this.animal = new Animal("raca", this.cliente, "nome");
+    	this.consulta = new Consulta(this.sessionDescription, this.dateNow, this.cliente, this.treatment, this.animal);
     }
     @Test
     public void testConstructor() {
