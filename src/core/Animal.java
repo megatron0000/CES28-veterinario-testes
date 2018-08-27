@@ -1,19 +1,39 @@
 package core;
 
+import java.time.LocalDate;
+
 public class Animal {
-	private int x1;
-	private int x2;
+	private LocalDate date;	
+	private String client;
+	private String treatment;
+	private String sessiondescription;
+	private Animal animal;
 	
-	public Animal(int startx1, int startx2) {
-		this.x1 = startx1;
-		this.x2 = startx2;
+	public Animal(LocalDate date, String client, String treatment, String sessiondescription, Animal animal) {
+		this.date = date;
+		this.client = client;
+		this.treatment = treatment;
+		this.sessiondescription = sessiondescription;
+		this.animal = animal;
 	}
 	
-	public void setX1(int newX1) {
-		x1=newX1;
-	}	
+	public void setSessionDescription(String sessiondescription) {
+		this.sessiondescription = sessiondescription;
+	}
 	
-	public int getX1() {
-		return this.x1;
+	public Animal getAnimal() {
+		return this.animal;
+	}
+	
+	public String getSessionDescription() {
+		return this.sessiondescription;
+	}
+	
+	public String getTreatment() {
+		return this.treatment;
+	}
+	
+	public String getClient() {
+		return this.client;
 	}
 }
