@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import core.Animal;
 import core.Client;
@@ -21,18 +22,22 @@ public class ClienteTest {
     }
     @Test
     public void testConstructor() {
-    	assertArrayEquals(this.nome, this.cliente.getName());
-    	assertArrayEquals(this.nome, this.cliente.getAddress());
+    	assertEquals(this.nome, this.cliente.getName());
+    	assertEquals(this.nome, this.cliente.getAddress());
     }
     @Test
     public void testSetAddress() {
     	this.cliente.setAddress("Numero 0");
-    	assertArrayEquals("Numero 0", this.cliente.getAddress());
+    	assertEquals("Numero 0", this.cliente.getAddress());
     }
     @Test
     public void addAnimal() {
-    	Animal animal1 = new Animal("raca1", this.client, "nome1");
-    	this.cliente.addAnimal("Numero 0");
-    	assertArrayEquals("Numero 0", this.cliente.getAddress());
+    	Animal animal1 = new Animal("nome1", "raca1", this.cliente);
+    	this.cliente.addAnimal(animal1);
+    	
+    	assertEquals(animal1, this.cliente.getAnimals());
+    	this.cliente.addAnimal(animal2);
+    	assertEquals(animal1, this.cliente.getAnimals());
+
     }
 }
