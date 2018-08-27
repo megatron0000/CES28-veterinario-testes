@@ -8,7 +8,7 @@ import core.Client;
 import core.Animal;
 import core.Session;
 
-public class ConsultaTest {
+public class SessionTest {
 	private Session consulta;	
 	private Client cliente;
 	private Animal animal;
@@ -23,7 +23,7 @@ public class ConsultaTest {
     	this.treatment = "Meu tratamento";
     	this.cliente = new Client("nome", "endereco");
     	this.animal = new Animal("rex", "pitbull", this.cliente);
-    	this.consulta = new Consulta(this.sessionDescription, this.dateNow, this.cliente, this.treatment, this.animal);
+    	this.consulta = new Session(this.sessionDescription, this.dateNow, this.cliente, this.treatment, this.animal);
     }
     @Test
     public void testConstructor() {
