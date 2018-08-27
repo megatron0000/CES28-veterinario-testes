@@ -2,7 +2,7 @@ package core;
 
 import org.junit.*;
 
-public class Consulta {
+public class Client {
     @BeforeClass
     public static void setUpClass() {
 // code executed before all test methods

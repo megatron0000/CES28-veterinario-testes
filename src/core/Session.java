@@ -2,13 +2,14 @@ package core;
 
 import java.time.LocalDate;
 
-public class Animal {
-	private String name;
-	private String animaltype;
-	private Client client;
-	private Session[] sessions;
+public class Session {
+	private LocalDate date;	
+	private String client;
+	private String treatment;
+	private String sessiondescription;
+	private Animal animal;
 	
-	public Animal(String name, String animaltype, Client client,  ) {
+	public Session(LocalDate date, String client, String treatment, String sessiondescription, Animal animal) {
 		this.date = date;
 		this.client = client;
 		this.treatment = treatment;
