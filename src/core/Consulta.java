@@ -1,4 +1,4 @@
-package test;
+package core;
 
 import org.junit.*;
 
@@ -13,6 +13,7 @@ public class Consulta {
     }
     @Test
     public void testAdd() {
+    	
 // test method
     }
     @Test
