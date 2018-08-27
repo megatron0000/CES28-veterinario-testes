@@ -4,13 +4,17 @@ import java.time.LocalDate;
 import java.util.Date;
 import org.junit.*;
 
+import core.Client;
+import core.Animal;
+import core.Session;
+
 public class ConsultaTest {
-	private Consulta consulta;	
-	private Client client;
+	private Session consulta;	
+	private Client cliente;
 	private Animal animal;
 	private LocalDate dateNow;
-	private String content;
-	private String tratamento;
+	private String sessionDescription;
+	private String treatment;
 	
     @BeforeClass
     public static void setUpClass() {
@@ -18,16 +22,19 @@ public class ConsultaTest {
     }
     @Before
     public void setUp() {
-    	content = "meu animal Info";
+    	sessionDescription = "A session description";
     	dateNow = java.time.LocalDate.now();
-    	tratamento = "Meu tratamento";
-    	client = new Client("nome", "endereco");
-    	animal = new Animal("raca", client, "nome");
-    	consulta = new Consulta(content, dateNow, client, treatment, animal);
+    	treatment = "Meu tratamento";
+    	cliente = new Client("nome", "endereco");
+    	animal = new Animal("raca", cliente, "nome");
+    	consulta = new Consulta(sessionDescription, dateNow, cliente, treatment, animal);
     }
     @Test
-    public void testAdd() {
-// test method
+    public void testConstructor() {
+    	assertArrayEquals(sessionDescription, consulta.getSessionDescription());
+    	assertArrayEquals(dateNow, consulta.getDate());
+    	assertArrayEquals(treatment, consulta.getTreatment());
+    	assertArrayEquals(cliente, consulta.getClient());
     }
     @Test
     public void testUpdateDescription() {
