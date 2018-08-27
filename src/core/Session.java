@@ -36,4 +36,8 @@ public class Session {
 	public String getClient() {
 		return this.client;
 	}
+	
+	public LocalDate getDate() {
+		return this.date;
+	}
 }

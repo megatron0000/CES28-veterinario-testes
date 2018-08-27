@@ -1,31 +1,35 @@
 package core;
 
-import org.junit.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Client {
-    @BeforeClass
-    public static void setUpClass() {
-// code executed before all test methods
-    }
-    @Before
-    public void setUp() {
-// code executed before each test method
-    }
-    @Test
-    public void testAdd() {
-    	
-// test method
-    }
-    @Test
-    public void testSubtract() {
-// test method
-    }
-    @After
-    public void tearDown() {
-// code executed after each test method
-    }
-    @AfterClass
-    public static void tearDownClass() {
-// code executed after all test methods
-    }
+	private String name;
+	private String address;
+	private ArrayList<Animal> animals;
+	
+	public Client(String name, String address) {
+		this.name = name;
+		this.address = address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public void addAnimal(Animal animal) {
+		this.animals.add(animal);
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getAddress() {
+		return this.address;
+	}
+	
+	public ArrayList<Animal> getAnimals(){
+		return this.animals;
+	}
 }
