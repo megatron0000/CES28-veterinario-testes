@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Session {
 	private LocalDate date;	
-	private String client;
+	private Client client;
 	private String treatment;
 	private String sessiondescription;
 	private Animal animal;
 	
-	public Session(LocalDate date, String client, String treatment, String sessiondescription, Animal animal) {
+	public Session(LocalDate date, Client client, String treatment, String sessiondescription, Animal animal) {
 		this.date = date;
 		this.client = client;
 		this.treatment = treatment;
