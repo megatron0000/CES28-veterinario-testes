@@ -3,7 +3,6 @@ package test;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import org.junit.*;
 
 import core.Client;
