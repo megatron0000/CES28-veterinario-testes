@@ -1,6 +1,7 @@
 package test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,12 +33,16 @@ public class ClienteTest {
     }
     @Test
     public void addAnimal() {
+    	ArrayList<Animal> animals = new ArrayList<Animal>();
+    	
     	Animal animal1 = new Animal("nome1", "raca1", this.cliente);
     	this.cliente.addAnimal(animal1);
+    	animals.add(animal1);
+    	assertEquals(animals, this.cliente.getAnimals());
     	
-    	assertEquals(animal1, this.cliente.getAnimals());
+    	Animal animal2 = new Animal("nome2", "raca2", this.cliente);
     	this.cliente.addAnimal(animal2);
-    	assertEquals(animal1, this.cliente.getAnimals());
-
+    	animals.add(animal2);
+    	assertEquals(animals, this.cliente.getAnimals());
     }
 }
