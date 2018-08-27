@@ -4,41 +4,38 @@ import java.time.LocalDate;
 import java.util.Date;
 import org.junit.*;
 
+import core.Client;
+import core.Animal;
+import core.Session;
+
 public class ConsultaTest {
-	private Consulta consulta;	
-	private Client client;
+	private Session consulta;	
+	private Client cliente;
 	private Animal animal;
 	private LocalDate dateNow;
-	private String content;
-	private String tratamento;
-	
-    @BeforeClass
-    public static void setUpClass() {
-// code executed before all test methods
-    }
+	private String sessionDescription;
+	private String treatment;
+
     @Before
     public void setUp() {
-    	content = "meu animal Info";
+    	sessionDescription = "A session description";
     	dateNow = java.time.LocalDate.now();
-    	tratamento = "Meu tratamento";
-    	client = new Client("nome", "endereco");
-    	animal = new Animal("raca", client, "nome");
-    	consulta = new Consulta(content, dateNow, client, treatment, animal);
+    	treatment = "Meu tratamento";
+    	cliente = new Client("nome", "endereco");
+    	animal = new Animal("raca", cliente, "nome");
+    	consulta = new Consulta(sessionDescription, dateNow, cliente, treatment, animal);
     }
     @Test
-    public void testAdd() {
-// test method
+    public void testConstructor() {
+    	assertArrayEquals(this.sessionDescription, this.consulta.getSessionDescription());
+    	assertArrayEquals(this.dateNow, this.consulta.getDate());
+    	assertArrayEquals(this.treatment, this.consulta.getTreatment());
+    	assertArrayEquals(this.cliente, this.consulta.getClient());
+    	assertArrayEquals(this.animal, this.consulta.getClient());
     }
     @Test
     public void testUpdateDescription() {
-
-    }
-    @After
-    public void tearDown() {
-// code executed after each test method
-    }
-    @AfterClass
-    public static void tearDownClass() {
-// code executed after all test methods
+    	this.consulta.setSessionDescription("New description");
+    	assertArrayEquals("New description", this.consulta.getSessionDescription());
     }
 }
