@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import java.time.LocalDate;
 import java.util.Date;
 import org.junit.*;
@@ -27,15 +29,15 @@ public class SessionTest {
     }
     @Test
     public void testConstructor() {
-    	assertArrayEquals(this.sessionDescription, this.consulta.getSessionDescription());
-    	assertArrayEquals(this.dateNow, this.consulta.getDate());
-    	assertArrayEquals(this.treatment, this.consulta.getTreatment());
-    	assertArrayEquals(this.cliente, this.consulta.getClient());
-    	assertArrayEquals(this.animal, this.consulta.getClient());
+    	assertEquals(this.sessionDescription, this.consulta.getSessionDescription());
+    	assertEquals(this.dateNow, this.consulta.getDate());
+    	assertEquals(this.treatment, this.consulta.getTreatment());
+    	assertEquals(this.cliente, this.consulta.getClient());
+    	assertEquals(this.animal, this.consulta.getClient());
     }
     @Test
     public void testUpdateDescription() {
     	this.consulta.setSessionDescription("New description");
-    	assertArrayEquals("New description", this.consulta.getSessionDescription());
+    	assertEquals("New description", this.consulta.getSessionDescription());
     }
 }
