@@ -15,11 +15,7 @@ public class ConsultaTest {
 	private LocalDate dateNow;
 	private String sessionDescription;
 	private String treatment;
-	
-    @BeforeClass
-    public static void setUpClass() {
-// code executed before all test methods
-    }
+
     @Before
     public void setUp() {
     	sessionDescription = "A session description";
@@ -31,21 +27,15 @@ public class ConsultaTest {
     }
     @Test
     public void testConstructor() {
-    	assertArrayEquals(sessionDescription, consulta.getSessionDescription());
-    	assertArrayEquals(dateNow, consulta.getDate());
-    	assertArrayEquals(treatment, consulta.getTreatment());
-    	assertArrayEquals(cliente, consulta.getClient());
+    	assertArrayEquals(this.sessionDescription, this.consulta.getSessionDescription());
+    	assertArrayEquals(this.dateNow, this.consulta.getDate());
+    	assertArrayEquals(this.treatment, this.consulta.getTreatment());
+    	assertArrayEquals(this.cliente, this.consulta.getClient());
+    	assertArrayEquals(this.animal, this.consulta.getClient());
     }
     @Test
     public void testUpdateDescription() {
-
-    }
-    @After
-    public void tearDown() {
-// code executed after each test method
-    }
-    @AfterClass
-    public static void tearDownClass() {
-// code executed after all test methods
+    	this.consulta.setSessionDescription("New description");
+    	assertArrayEquals("New description", this.consulta.getSessionDescription());
     }
 }
