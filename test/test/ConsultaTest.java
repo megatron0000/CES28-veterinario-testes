@@ -22,7 +22,7 @@ public class ConsultaTest {
     	this.dateNow = java.time.LocalDate.now();
     	this.treatment = "Meu tratamento";
     	this.cliente = new Client("nome", "endereco");
-    	this.animal = new Animal("raca", this.cliente, "nome");
+    	this.animal = new Animal("rex", "pitbull", this.cliente);
     	this.consulta = new Consulta(this.sessionDescription, this.dateNow, this.cliente, this.treatment, this.animal);
     }
     @Test

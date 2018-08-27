@@ -9,11 +9,10 @@ public class Animal {
 	private Client client;
 	private ArrayList<Session> sessions;
 	
-	public Animal(String name, String animaltype, Client client, Session session) {
+	public Animal(String name, String animaltype, Client client) {
 		this.name = name;
 		this.animaltype = animaltype;
 		this.client = client;
-		this.sessions.add(session);
 	}
 	
 	public void addSession(Session session) {
