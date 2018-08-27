@@ -12,19 +12,19 @@ import core.Client;
 
 public class ClienteTest {
 	private Client client;
-	private String nome;	
+	private String name;	
 	private String address;
 
     @Before
     public void setUp() {
-    	this.nome = "Joao";
+    	this.name = "Joao";
     	this.address = "Rua dos bobos";
-    	client = new Client(this.nome, this.address);
+    	client = new Client(this.name, this.address);
     }
     @Test
     public void testConstructor() {
-    	assertEquals(this.nome, this.client.getName());
-    	assertEquals(this.nome, this.client.getAddress());
+    	assertEquals(this.name, this.client.getName());
+    	assertEquals(this.address, this.client.getAddress());
     }
     @Test
     public void testSetAddress() {
