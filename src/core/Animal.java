@@ -13,6 +13,7 @@ public class Animal {
 		this.name = name;
 		this.animaltype = animaltype;
 		this.client = client;
+		this.sessions = new ArrayList<Session>();
 	}
 	
 	public void addSession(Session session) {

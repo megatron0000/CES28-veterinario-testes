@@ -11,6 +11,7 @@ public class Client {
 	public Client(String name, String address) {
 		this.name = name;
 		this.address = address;
+		this.animals = new ArrayList<Animal>();
 	}
 	
 	public void setAddress(String address) {

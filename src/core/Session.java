@@ -33,7 +33,7 @@ public class Session {
 		return this.treatment;
 	}
 	
-	public String getClient() {
+	public Client getClient() {
 		return this.client;
 	}
 	

@@ -32,8 +32,8 @@ public class SessionTest {
     	assertEquals(this.sessionDescription, this.session.getSessionDescription());
     	assertEquals(this.dateNow, this.session.getDate());
     	assertEquals(this.treatment, this.session.getTreatment());
-    	assertEquals(this.cliente, this.session.getClient());
-    	assertEquals(this.animal, this.session.getClient());
+    	assertEquals(this.client, this.session.getClient());
+    	assertEquals(this.animal, this.session.getAnimal());
     }
     @Test
     public void testUpdateDescription() {
