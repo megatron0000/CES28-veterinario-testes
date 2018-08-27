@@ -1,19 +1,23 @@
 package core;
 
+import java.awt.List;
 import java.time.LocalDate;
 
 public class Animal {
 	private String name;
 	private String animaltype;
 	private Client client;
-	private Session[] sessions;
+	private List<Session> sessions;
 	
-	public Animal(String name, String animaltype, Client client,  ) {
-		this.date = date;
+	public Animal(String name, String animaltype, Client client, Session session) {
+		this.name = name;
+		this.animaltype = animaltype;
 		this.client = client;
-		this.treatment = treatment;
-		this.sessiondescription = sessiondescription;
-		this.animal = animal;
+		this.sessions = new List<Session>();
+	}
+	
+	public void addSession(Session session) {
+		this.sessions.add(session);
 	}
 	
 	public void setSessionDescription(String sessiondescription) {
