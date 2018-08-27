@@ -1,7 +1,8 @@
 package test;
+
 import org.junit.*;
 
-public class Dummy {
+public class Consulta {
     @BeforeClass
     public static void setUpClass() {
 // code executed before all test methods
