@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 import javax.swing.SwingUtilities;
 
 import template.CesTest;
-import xyz.baudelaplace.bmvp.cestest.presenters.UTMPresenter;
+import template.presenters.UTMPresenter;
 import xyz.baudelaplace.bmvp.framework.BMVP;
 import xyz.baudelaplace.bmvp.framework.Presenter;
 import xyz.baudelaplace.bmvp.framework.views.ViewAdapter;

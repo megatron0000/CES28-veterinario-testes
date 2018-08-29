@@ -7,10 +7,11 @@ import org.piccolo2d.PNode;
 import org.piccolo2d.event.PBasicInputEventHandler;
 import org.piccolo2d.event.PInputEvent;
 
+import core.Client;
+import gui.views.ClientNode;
 import xyz.baudelaplace.bmvp.cestest.events.DroneCreationRequest;
 import xyz.baudelaplace.bmvp.cestest.presenters.UTMBinding;
 import xyz.baudelaplace.bmvp.cestest.views.GridExample;
-import template.views.UTMView;
 import xyz.baudelaplace.bmvp.framework.View;
 
 public class UTMView extends View<UTMBinding> {
@@ -39,14 +40,16 @@ public class UTMView extends View<UTMBinding> {
 			if (!drones.containsKey(drone)) {
 				PNode rect = new PNode();
 				// System.out.println("view x2: " + x);
-				rect.setBounds(x, y, 40, 40);
+				rect.setBounds(x, y, 400, 600);
 				rect.setPaint(Color.RED);
 				drones.put(drone, rect);
 				// System.out.println("view layer : " + grid.getCanvas().getLayer());
-				grid.getCanvas().getLayer().addChild(rect);
+				// grid.getCanvas().getLayer().addChild(rect);
+				Client client = new Client("Vitor", "Dourados");
+				grid.getCanvas().getLayer().addChild(new ClientNode(client, x, y));
 				// System.out.println("view end");
 			} else {
-				drones.get(drone).setBounds(x, y, 40, 40);
+				drones.get(drone).setBounds(x, y, 400, 600);
 			}
 
 		});

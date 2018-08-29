@@ -10,15 +10,12 @@ import xyz.baudelaplace.bmvp.cestest.events.DroneLocationChange;
 import xyz.baudelaplace.bmvp.cestest.presenters.GCSBinding;
 import xyz.baudelaplace.bmvp.cestest.presenters.GCSPresenter;
 import xyz.baudelaplace.bmvp.cestest.presenters.UTMBinding;
-import xyz.baudelaplace.bmvp.cestest.views.UTMView;
+import template.views.UTMView;
 import xyz.baudelaplace.bmvp.framework.OutBinding;
 import xyz.baudelaplace.bmvp.framework.Presenter;
 import xyz.baudelaplace.bmvp.framework.views.ViewAdapter;
 
 public class UTMPresenter extends Presenter<UTMBinding> {
-
-	@Inject
-	ViewAdapter adapter;
 
 	private OutBinding<UTMBinding> viewB;
 	

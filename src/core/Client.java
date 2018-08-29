@@ -12,6 +12,8 @@ public class Client {
 		this.name = name;
 		this.address = address;
 		this.animals = new ArrayList<Animal>();
+		this.animals.add(new Animal("Totó", "Cachorro", this));
+		this.animals.add(new Animal("Felix", "Gato", this));
 	}
 	
 	public void setAddress(String address) {
