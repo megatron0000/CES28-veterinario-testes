@@ -1,7 +1,8 @@
-package gui.views;
+package gui.views.nodes;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import org.piccolo2d.PNode;
 import org.piccolo2d.nodes.PText;
@@ -14,14 +15,13 @@ import gui.views.common.SetBackgroundRect;
 
 public class ClientNode extends PNode {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Client client;
+	private Consumer<Animal> onClickExecute;
 	
-	public ClientNode(Client client, double baseX, double baseY) {
+	public ClientNode(Client client, double baseX, double baseY, Consumer<Animal> onClickExecute) {
 		super();
+		this.onClickExecute = onClickExecute;
 		this.client = client;
 		ArrayList<Animal> animals = client.getAnimals();
 		double height = 200 + 100 * animals.size(); // title + space + animals spaced
@@ -33,6 +33,7 @@ public class ClientNode extends PNode {
 		title.setFont(Config.DEFAULT_FONT);
 		this.addChild(title);
 		title.setBounds(baseX, baseY, width, 200);
+		ClientNode self = this;
 		for (int i = 0; i < animals.size(); i++) {
 			Animal animal = animals.get(i);
 			this.addChild(new AnimalNode(animal, 200, 60,  baseX + 50, baseY + 100 + 100*i + 20) {
@@ -44,8 +45,7 @@ public class ClientNode extends PNode {
 
 				@Override
 				public void onClick() {
-					// TODO Auto-generated method stub
-					
+					self.onClickExecute.accept(animal);
 				}
 			});
 		}

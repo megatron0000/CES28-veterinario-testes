@@ -1,4 +1,4 @@
-package gui.views;
+package gui.views.nodes;
 
 import java.awt.Color;
 import java.awt.Component;

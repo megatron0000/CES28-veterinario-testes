@@ -1,6 +1,5 @@
 package core;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Client {
@@ -12,7 +11,7 @@ public class Client {
 		this.name = name;
 		this.address = address;
 		this.animals = new ArrayList<Animal>();
-		this.animals.add(new Animal("Totó", "Cachorro", this));
+		this.animals.add(new Animal("TotÃ³", "Cachorro", this));
 		this.animals.add(new Animal("Felix", "Gato", this));
 	}
 	

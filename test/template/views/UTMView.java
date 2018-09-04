@@ -8,7 +8,7 @@ import org.piccolo2d.event.PBasicInputEventHandler;
 import org.piccolo2d.event.PInputEvent;
 
 import core.Client;
-import gui.views.ClientNode;
+import gui.views.nodes.ClientNode;
 import xyz.baudelaplace.bmvp.cestest.events.DroneCreationRequest;
 import xyz.baudelaplace.bmvp.cestest.presenters.UTMBinding;
 import xyz.baudelaplace.bmvp.cestest.views.GridExample;
@@ -46,7 +46,9 @@ public class UTMView extends View<UTMBinding> {
 				// System.out.println("view layer : " + grid.getCanvas().getLayer());
 				// grid.getCanvas().getLayer().addChild(rect);
 				Client client = new Client("Vitor", "Dourados");
-				grid.getCanvas().getLayer().addChild(new ClientNode(client, x, y));
+				grid.getCanvas().getLayer().addChild(new ClientNode(client, x, y, animal -> {
+					System.out.println("animal");
+				}));
 				// System.out.println("view end");
 			} else {
 				drones.get(drone).setBounds(x, y, 400, 600);

@@ -1,9 +1,0 @@
-package gui;
-
-
-public class Dummy {
-	public static void main(String[] args) {
-		System.out.print("Hello world");
-		
-	}
-}
