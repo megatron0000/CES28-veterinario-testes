@@ -1,8 +1,8 @@
 package gui.views;
 
-import org.piccolo2d.extras.PFrame;
 
 import gui.views.common.ViewBus;
+import gui.views.nodes.PSwingFrame;
 import xyz.baudelaplace.bmvp.framework.View;
 import xyz.baudelaplace.bmvp.framework.binding.Binding;
 
@@ -16,7 +16,7 @@ public class RootView extends View<Binding>{
 
 	@Override
 	public void onInit() {
-		ViewBus.FRAME = new PFrame();
+		ViewBus.FRAME = new PSwingFrame();
 	}
 
 	@Override

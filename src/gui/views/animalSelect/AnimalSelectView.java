@@ -13,7 +13,6 @@ public class AnimalSelectView extends View<AnimalSelectViewBinding> {
 
 	@Override
 	public void onBindingChanged(AnimalSelectViewBinding newBinding) {
-		// TODO Auto-generated method stub
 		if (newBinding == null)
 			return;
 
