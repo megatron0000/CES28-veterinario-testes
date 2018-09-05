@@ -1,6 +1,9 @@
 package gui.views.animalSelect;
 
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
+
+import org.piccolo2d.PLayer;
 
 import core.Client;
 import gui.views.common.ViewBus;
@@ -16,6 +19,9 @@ public class AnimalSelectView extends View<AnimalSelectViewBinding> {
 		if (newBinding == null)
 			return;
 
+		PLayer layer = ViewBus.FRAME.getCanvas().getLayer();
+		ViewBus.FRAME.getCanvas().getCamera().setViewTransform(new AffineTransform());
+
 		this.currentClients.forEach(client -> client.removeFromParent());
 		this.currentClients = new ArrayList<>();
 
@@ -28,7 +34,7 @@ public class AnimalSelectView extends View<AnimalSelectViewBinding> {
 			ClientNode curr =
 					new ClientNode(
 							client, x, y, animal -> newBinding.onAnimalSelected.accept(client, animal));
-			ViewBus.FRAME.getCanvas().getLayer().addChild(curr);
+			layer.addChild(curr);
 			this.currentClients.add(curr);
 			widthCount++;
 			if (widthCount > widthMax) {

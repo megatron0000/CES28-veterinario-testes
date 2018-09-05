@@ -9,10 +9,11 @@ public class PSwingFrame extends PFrame {
 	
 	public PSwingFrame() {
 		this(new PSwingCanvas());
+		this.setFullScreenMode(true);
 	}
 	
 	public PSwingFrame(final PCanvas aCanvas) {
-        super("Veterin·rio", false, aCanvas);
+        super("Veterin√°rio", false, aCanvas);
     }
 	
 

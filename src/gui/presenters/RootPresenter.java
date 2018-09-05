@@ -2,8 +2,10 @@ package gui.presenters;
 
 import java.util.ArrayList;
 
+import core.Animal;
 import core.Client;
 import gui.events.SessionCreateRequest;
+import gui.events.SessionSaveRequest;
 import gui.presenters.animalSelect.AnimalSelectPresenter;
 import gui.presenters.animalSelect.AnimalSelectPresenterBinding;
 import gui.presenters.sessionEdit.SessionEditPresenter;
@@ -20,11 +22,29 @@ public class RootPresenter extends Presenter<Binding> {
 
 	}
 
+	@SuppressWarnings("serial")
 	@Override
 	public void onInit() {
 		registerListener(SessionCreateRequest.class, event -> {
-			createChild(SessionEditPresenter.class)
-					.set(new SessionEditPresenterBinding(event.getClient(), event.getAnimal(), event.getDate()));
+			createChild(SessionEditPresenter.class).set(
+					new SessionEditPresenterBinding(event.getClient(), event.getAnimal(), event.getDate()));
+		});
+
+		registerListener(SessionSaveRequest.class, event -> {
+			createChild(AnimalSelectPresenter.class)
+					.set(new AnimalSelectPresenterBinding(new ArrayList<Client>() {
+						{
+							add(new Client("Pessoa A", "Lugar A"));
+							add(new Client("Pessoa B", "Lugar B"));
+							add(new Client("Pessoa C", "Lugar C"));
+							add(new Client("Pessoa D", "Lugar D"));
+							add(new Client("Pessoa E", "Lugar E"));
+							forEach(client -> {
+								client.addAnimal(new Animal("Totó", "Cachorro", client));
+								client.addAnimal(new Animal("Félix", "Gato", client));
+							});
+						}
+					}));
 		});
 	}
 
@@ -38,15 +58,20 @@ public class RootPresenter extends Presenter<Binding> {
 	@Override
 	protected void configure() {
 		declareView(RootView.class);
-		createChild(AnimalSelectPresenter.class).set(new AnimalSelectPresenterBinding(new ArrayList<Client>() {
-			{
-				add(new Client("Pessoa A", "Lugar A"));
-				add(new Client("Pessoa B", "Lugar B"));
-				add(new Client("Pessoa C", "Lugar C"));
-				add(new Client("Pessoa D", "Lugar D"));
-				add(new Client("Pessoa E", "Lugar E"));
-			}
-		}));
+		createChild(AnimalSelectPresenter.class)
+				.set(new AnimalSelectPresenterBinding(new ArrayList<Client>() {
+					{
+						add(new Client("Pessoa A", "Lugar A"));
+						add(new Client("Pessoa B", "Lugar B"));
+						add(new Client("Pessoa C", "Lugar C"));
+						add(new Client("Pessoa D", "Lugar D"));
+						add(new Client("Pessoa E", "Lugar E"));
+						forEach(client -> {
+							client.addAnimal(new Animal("Totó " + client.getName().split(" ")[1], "Cachorro", client));
+							client.addAnimal(new Animal("Félix " + client.getName().split(" ")[1], "Gato", client));
+						});
+					}
+				}));
 		;
 	}
 
